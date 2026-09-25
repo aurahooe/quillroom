@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quillroom</title>
+  <meta name="description" content="A small press. One piece each hour. Public slips from anyone who signs the book." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="mast">
+    <a class="mark" href="#desk">
+      <span class="mark-dot"></span>
+      Quillroom
+    </a>
+    <nav>
+      <a href="#desk">This hour</a>
+      <a href="#table">The table</a>
+      <a href="#studio">Studio</a>
+    </nav>
+    <div class="auth-slot" id="authSlot">
+      <button class="ghost" type="button" data-open="gate">Sign the book</button>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="desk">
+      <p class="eyebrow" id="hourKicker">This hour</p>
+      <h1 id="hourTitle">The room is already warm</h1>
+      <p class="lede" id="hourMeta"></p>
+      <article class="hour-body" id="hourBody"></article>
+      <p class="tick" id="tick">Next turn in —</p>
+    </section>
+    <section class="table" id="table">
+      <div class="section-head">
+        <h2>On the table</h2>
+        <p>Slips marked public. Anyone may read them. Private ones stay in your studio.</p>
+      </div>
+      <div class="cards" id="publicSlips">
+        <p class="empty">The table is cleared. Leave a slip if you like.</p>
+      </div>
+    </section>
+    <section class="studio" id="studio">
+      <div class="section-head">
+        <h2>Studio</h2>
+        <p>Write under your own name. Toggle public when a piece is ready to sit out.</p>
+      </div>
+      <div id="studioBody">
+        <p class="empty">Sign the book to keep drafts and publish slips.</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>Quillroom turns on the hour. Paper, not a feed.</p>
+  </footer>
+  <dialog id="gate" class="sheet">
+    <form method="dialog" class="sheet-inner" id="authForm">
+      <p class="eyebrow">The book</p>
+      <h3 id="gateTitle">Sign in</h3>
+      <label>Email
+        <input type="email" name="email" required autocomplete="email" />
+      </label>
+      <label>Password
+        <input type="password" name="password" required minlength="8" autocomplete="current-password" />
+      </label>
+      <label class="name-row hidden">Display name
+        <input type="text" name="display" maxlength="40" placeholder="What we call you" />
+      </label>
+      <p class="form-err" id="authErr" hidden></p>
+      <div class="row">
+        <button type="submit" class="solid" id="authSubmit">Enter</button>
+        <button type="button" class="ghost" id="authToggle">Need a desk?</button>
+        <button type="submit" class="textish" value="cancel">Close</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
